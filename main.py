@@ -401,7 +401,10 @@ def main():
         out.write_bytes(data)
     except OSError:
         pass
-    Path(__file__).with_name("entry.png").write_bytes(data)
+    try:
+        Path(__file__).with_name("entry.png").write_bytes(data)
+    except OSError:
+        pass
     print("entry.png:", len(data), "bytes")
 
 
